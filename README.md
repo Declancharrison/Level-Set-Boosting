@@ -38,3 +38,6 @@ If you use lsboost, please cite the paper it originates from:
       archivePrefix={arXiv},
       primaryClass={cs.LG}
 }
+
+# Issues
+There is a known problem with MacOS using the parallel implentation in this package. We are currently working on a fix and hope to have this resolved shortly. If you run into any issues or have questions about the package, feel free to create an issue and we will get back to you as quick as possible!
