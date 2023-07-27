@@ -13,6 +13,7 @@ from tqdm.auto import tqdm
 from joblib import Parallel, delayed
 import warnings
 import os
+import sys
 import gc
 from multiprocessing import Pool
 from multiprocessing import shared_memory
@@ -20,6 +21,7 @@ import time
 import psutil
 import threading
 from itertools import repeat
+import multiprocessing
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 ### Node Class ###
@@ -69,7 +71,9 @@ class LSBoostingRegressor:
     '''
     def __init__(self, T = 100, num_bins = 10, min_group_size=1, global_gamma=.1, weak_learner = LinearRegression(), min_val=0, max_val=1, bin_type = 'default', initial_model = None, train_predictions = [], val_predictions = [], head_node_name ='head_node',  learning_rate = 1, center_mean = False, final_round = False,  n_jobs = 1):
         
-
+        # multiprocessing for MacOS
+        if sys.platform == "darwin":
+            multiprocessing.set_start_method("fork", force=true)
         ### Hyperparameters ###
 
         # number of rounds
