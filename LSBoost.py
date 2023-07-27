@@ -73,7 +73,7 @@ class LSBoostingRegressor:
         
         # multiprocessing for MacOS
         if sys.platform == "darwin":
-            multiprocessing.set_start_method("fork", force=true)
+            multiprocessing.set_start_method("fork", force=True)
         ### Hyperparameters ###
 
         # number of rounds
